@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     
-    <title>Hello World | Wetoria</title>
+    <title>Kendo UI Export Excel | Wetoria</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -15,11 +15,11 @@
     <meta name="description" content="Fake it until become it">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Hello World | Wetoria">
+    <meta name="twitter:title" content="Kendo UI Export Excel | Wetoria">
     <meta name="twitter:description" content="Fake it until become it">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Hello World | Wetoria">
+    <meta property="og:title" content="Kendo UI Export Excel | Wetoria">
     <meta property="og:description" content="Fake it until become it">
 
     
@@ -35,7 +35,7 @@
     <meta name="generator" content="hexo"/>
     
 
-    <link rel="canonical" href="http://yoursite.com/2018/07/16/hello-world/"/>
+    <link rel="canonical" href="http://yoursite.com/2018/07/26/Kendo UI Export Excel/"/>
 
     
 
@@ -125,25 +125,25 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2018-07-16T08:25:53.853Z" class="post-list__meta--date date">2018-07-16</time> &#8226; <span class="post-meta__tags tags">于&nbsp; </span>
+      <time datetime="2018-07-26T07:55:27.878Z" class="post-list__meta--date date">2018-07-26</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/KendoUI/">KendoUI</a>
+ </span>
       <span class="page-pv">
       &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
       </span> 
    
     </div>
-    <h1 class="post-title">Hello World</h1>
+    <h1 class="post-title">Kendo UI Export Excel</h1>
   </header>
 
   <section class="post">
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <p><strong>1.Config Export Button</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn btn-primary "</span> style=<span class="string">"float:left;margin-right:5px;"</span> data-bind=<span class="string">"click:excelExport"</span>&gt;</span><br><span class="line">  &lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"fa fa-file-excel-o"</span> style=<span class="string">"margin-right:3px;"</span>&gt;&lt;/i&gt;</span><br><span class="line">  &lt;@spring.message <span class="string">"hap.exportexcel"</span>/&gt;</span><br><span class="line">&lt;<span class="regexp">/span&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>2.Config Grid</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add this attr in grid</span></span><br><span class="line">excel: &#123;</span><br><span class="line">  fileName: <span class="string">"施工节点.xlsx"</span>,</span><br><span class="line">  allPages: <span class="literal">true</span>, <span class="comment">// Export all data, when paganation is active</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.Config ViewModel</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create this function in ViewModel's config</span></span><br><span class="line">excelExport: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> grid = $(<span class="string">'#notes_edit_grid'</span>).data(<span class="string">'kendoGrid'</span>);</span><br><span class="line">  grid.saveAsExcel();   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>PS:</strong> 在配置好filed和title的情况下，无需其他多余操作，即可按照页面样式导出数据</p>
 
   </section>
 
