@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     
-    <title>Kendo UI Export Excel | Wetoria</title>
+    <title>原生js实现复制 | Wetoria</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -15,11 +15,11 @@
     <meta name="description" content="Fake it until become it">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Kendo UI Export Excel | Wetoria">
+    <meta name="twitter:title" content="原生js实现复制 | Wetoria">
     <meta name="twitter:description" content="Fake it until become it">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Kendo UI Export Excel | Wetoria">
+    <meta property="og:title" content="原生js实现复制 | Wetoria">
     <meta property="og:description" content="Fake it until become it">
 
     
@@ -35,7 +35,7 @@
     <meta name="generator" content="hexo"/>
     
 
-    <link rel="canonical" href="http://yoursite.com/2018/07/26/Kendo UI Export Excel/"/>
+    <link rel="canonical" href="http://yoursite.com/2018/09/14/原生js实现复制/"/>
 
     
 
@@ -125,25 +125,19 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2018-07-26T07:55:27.878Z" class="post-list__meta--date date">2018-07-26</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/KendoUI/">KendoUI</a>
- </span>
+      <time datetime="2018-09-14T03:46:17.720Z" class="post-list__meta--date date">2018-09-14</time> &#8226; <span class="post-meta__tags tags">于&nbsp; </span>
       <span class="page-pv">
       &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
       </span> 
    
     </div>
-    <h1 class="post-title">Kendo UI Export Excel</h1>
+    <h1 class="post-title">原生js实现复制</h1>
   </header>
 
   <section class="post">
-    <p><strong>1.Config Export Button</strong></p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn btn-primary "</span> style=<span class="string">"float:left;margin-right:5px;"</span> data-bind=<span class="string">"click:excelExport"</span>&gt;</span><br><span class="line">  &lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"fa fa-file-excel-o"</span> style=<span class="string">"margin-right:3px;"</span>&gt;&lt;/i&gt;</span><br><span class="line">  &lt;@spring.message <span class="string">"hap.exportexcel"</span>/&gt;</span><br><span class="line">&lt;<span class="regexp">/span&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>2.Config Grid</strong></p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add this attr in grid</span></span><br><span class="line">excel: &#123;</span><br><span class="line">  fileName: <span class="string">"施工节点.xlsx"</span>,</span><br><span class="line">  allPages: <span class="literal">true</span>, <span class="comment">// Export all data, when paganation is active</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>3.Config ViewModel</strong></p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create this function in ViewModel's config</span></span><br><span class="line">excelExport: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> grid = $(<span class="string">'#notes_edit_grid'</span>).data(<span class="string">'kendoGrid'</span>);</span><br><span class="line">  grid.saveAsExcel();   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>PS:</strong> 在配置好filed和title的情况下，无需其他多余操作，即可按照页面样式导出数据</p>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const container = document.createElement(&apos;textarea&apos;);</span><br><span class="line">container.innerHTML = JSON.stringify(</span><br><span class="line">  respJSON,</span><br><span class="line">  null,</span><br><span class="line">  2</span><br><span class="line">);</span><br><span class="line">document.body.appendChild(container);</span><br><span class="line">container.select();</span><br><span class="line">document.execCommand(&apos;copy&apos;);</span><br><span class="line">document.body.removeChild(container);</span><br></pre></td></tr></table></figure>
+<p>新建一个输入框，将要复制的文本作为其value，选中，调用document.execCommand(‘copy’),然后移除输入框。</p>
+<p>还可以使用cut, paste执行剪切和粘贴</p>
 
   </section>
 
@@ -151,31 +145,21 @@
 <section class="read-more">
            
     
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2018/09/14/原生js实现复制/" title="原生js实现复制">原生js实现复制</a></h2>
-                <p class="excerpt">
-                
-                12345678910const container = document.createElement(&amp;apos;textarea&amp;apos;);container.innerHTML = JSON.stringify(  respJSON,  null,  2);document.body.ap
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2018-09-14T03:46:17.720Z" class="post-list__meta--date date">2018-09-14</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="/2018/09/14/原生js实现复制/">继续阅读</a></div>
-                           
-            </div>
         
         
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">更早的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2018/02/08/使用packageDev创建自己的代码高亮样式/" title="使用packageDev创建自己的代码高亮样式">使用packageDev创建自己的代码高亮样式</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2018/07/26/Kendo UI Export Excel/" title="Kendo UI Export Excel">Kendo UI Export Excel</a></h2>
                 <p class="excerpt">
                 
-                1. 安装packageDev在sublime中，使用cmd+shift+p，打开Command palette. 输出pci打开包管理，搜索并下载packageDev.
-2.创建样式匹配文件不知是不是因为版本问题，我使用的packageDev-&amp;gt;New Syntax Definition使用
+                1.Config Export Button
+1234&amp;lt;span class=&#34;btn btn-primary &#34; style=&#34;float:left;margin-right:5px;&#34; data-bind=&#34;click:excelExport&#34;&amp;gt;  &amp;lt;i class=&#34;fa f
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2018-02-08T08:24:08.000Z" class="post-list__meta--date date">2018-02-08</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="/2018/02/08/使用packageDev创建自己的代码高亮样式/">继续阅读</a></div>
+                <div class="post-list__meta"><time datetime="2018-07-26T07:55:27.878Z" class="post-list__meta--date date">2018-07-26</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/KendoUI/">KendoUI</a>
+</span><a class="btn-border-small" href="/2018/07/26/Kendo UI Export Excel/">继续阅读</a></div>
                        
             </div>
         
