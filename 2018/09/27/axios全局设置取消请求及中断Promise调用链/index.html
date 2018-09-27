@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     
-    <title>原生js实现复制 | Wetoria</title>
+    <title>axios全局设置取消请求及中断Promise调用链 | Wetoria</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -15,11 +15,11 @@
     <meta name="description" content="Fake it until become it">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="原生js实现复制 | Wetoria">
+    <meta name="twitter:title" content="axios全局设置取消请求及中断Promise调用链 | Wetoria">
     <meta name="twitter:description" content="Fake it until become it">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="原生js实现复制 | Wetoria">
+    <meta property="og:title" content="axios全局设置取消请求及中断Promise调用链 | Wetoria">
     <meta property="og:description" content="Fake it until become it">
 
     
@@ -35,7 +35,7 @@
     <meta name="generator" content="hexo"/>
     
 
-    <link rel="canonical" href="http://yoursite.com/2018/09/14/原生js实现复制/"/>
+    <link rel="canonical" href="http://yoursite.com/2018/09/27/axios全局设置取消请求及中断Promise调用链/"/>
 
     
 
@@ -125,19 +125,17 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2018-09-14T03:46:17.720Z" class="post-list__meta--date date">2018-09-14</time> &#8226; <span class="post-meta__tags tags">于&nbsp; </span>
+      <time datetime="2018-09-27T02:01:44.499Z" class="post-list__meta--date date">2018-09-27</time> &#8226; <span class="post-meta__tags tags">于&nbsp; </span>
       <span class="page-pv">
       &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
       </span> 
    
     </div>
-    <h1 class="post-title">原生js实现复制</h1>
+    <h1 class="post-title">axios全局设置取消请求及中断Promise调用链</h1>
   </header>
 
   <section class="post">
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const container = document.createElement(&apos;textarea&apos;);</span><br><span class="line">container.innerHTML = JSON.stringify(</span><br><span class="line">  respJSON,</span><br><span class="line">  null,</span><br><span class="line">  2</span><br><span class="line">);</span><br><span class="line">document.body.appendChild(container);</span><br><span class="line">container.select();</span><br><span class="line">document.execCommand(&apos;copy&apos;);</span><br><span class="line">document.body.removeChild(container);</span><br></pre></td></tr></table></figure>
-<p>新建一个输入框，将要复制的文本作为其value，选中，调用document.execCommand(‘copy’),然后移除输入框。</p>
-<p>还可以使用cut, paste执行剪切和粘贴</p>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">// 获取CancelToken</span><br><span class="line">const CancelToken = axios.CancelToken;</span><br><span class="line">const source = CancelToken.source();</span><br><span class="line"></span><br><span class="line">// http request 拦截器);</span><br><span class="line">axios.interceptors.request.use(</span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line">    // 全局添加cancelToken</span><br><span class="line">    newConfig.cancelToken = source.token;</span><br><span class="line">    return newConfig;</span><br><span class="line">  &#125;,</span><br><span class="line">  (err) =&gt; &#123;</span><br><span class="line">    const error = err;</span><br><span class="line">    return Promise.reject(error);</span><br><span class="line">  &#125;,</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">// http response 拦截器</span><br><span class="line">axios.interceptors.response.use((response) =&gt; &#123;</span><br><span class="line">  const code = response.data.code;</span><br><span class="line">  if (code == &apos;002&apos;) &#123;</span><br><span class="line">    // 某个请求的响应满足特定条件的情况下，取消其他正在进行的请求</span><br><span class="line">    source.cancel();</span><br><span class="line">  &#125;</span><br><span class="line">  return Promise.resolve(response.data);</span><br><span class="line">&#125;, (error) =&gt; &#123;</span><br><span class="line">  if (axios.isCancel(error)) &#123; // 取消请求的情况下，终端Promise调用链</span><br><span class="line">    return new Promise(() =&gt; &#123;&#125;);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return Promise.reject(error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
   </section>
 
@@ -145,33 +143,18 @@
 <section class="read-more">
            
     
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2018/09/27/axios全局设置取消请求及中断Promise调用链/" title="axios全局设置取消请求及中断Promise调用链">axios全局设置取消请求及中断Promise调用链</a></h2>
-                <p class="excerpt">
-                
-                123456789101112131415161718192021222324252627282930313233```// 获取CancelTokenconst CancelToken = axios.CancelToken;const source = CancelToken.source();
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2018-09-27T02:01:44.499Z" class="post-list__meta--date date">2018-09-27</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="/2018/09/27/axios全局设置取消请求及中断Promise调用链/">继续阅读</a></div>
-                           
-            </div>
         
         
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">更早的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2018/07/26/Kendo UI Export Excel/" title="Kendo UI Export Excel">Kendo UI Export Excel</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2018/09/14/原生js实现复制/" title="原生js实现复制">原生js实现复制</a></h2>
                 <p class="excerpt">
                 
-                1.Config Export Button
-1234&amp;lt;span class=&#34;btn btn-primary &#34; style=&#34;float:left;margin-right:5px;&#34; data-bind=&#34;click:excelExport&#34;&amp;gt;  &amp;lt;i class=&#34;fa f
+                12345678910const container = document.createElement(&amp;apos;textarea&amp;apos;);container.innerHTML = JSON.stringify(  respJSON,  null,  2);document.body.ap
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2018-07-26T07:55:27.878Z" class="post-list__meta--date date">2018-07-26</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/KendoUI/">KendoUI</a>
-</span><a class="btn-border-small" href="/2018/07/26/Kendo UI Export Excel/">继续阅读</a></div>
+                <div class="post-list__meta"><time datetime="2018-09-14T03:46:17.720Z" class="post-list__meta--date date">2018-09-14</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="/2018/09/14/原生js实现复制/">继续阅读</a></div>
                        
             </div>
         
