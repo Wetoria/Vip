@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     
-    <title>搭建自己的个人博客 | Wetoria</title>
+    <title>The experience of develop a customer wechat bot | Wetoria</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -15,11 +15,11 @@
     <meta name="description" content="Fake it until become it">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="搭建自己的个人博客 | Wetoria">
+    <meta name="twitter:title" content="The experience of develop a customer wechat bot | Wetoria">
     <meta name="twitter:description" content="Fake it until become it">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="搭建自己的个人博客 | Wetoria">
+    <meta property="og:title" content="The experience of develop a customer wechat bot | Wetoria">
     <meta property="og:description" content="Fake it until become it">
 
     
@@ -35,7 +35,7 @@
     <meta name="generator" content="hexo"/>
     
 
-    <link rel="canonical" href="http://yoursite.com/2016/11/25/AfterBuildBlog/"/>
+    <link rel="canonical" href="http://yoursite.com/2019/07/11/The experience of develop customer wechat/"/>
 
     
 
@@ -125,32 +125,25 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2016-11-24T23:14:59.000Z" class="post-list__meta--date date">2016-11-25</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/Blog/">Blog</a>
+      <time datetime="2019-07-11T13:38:14.589Z" class="post-list__meta--date date">2019-07-11</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/WeChat/">WeChat</a>
  </span>
       <span class="page-pv">
       &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
       </span> 
    
     </div>
-    <h1 class="post-title">搭建自己的个人博客</h1>
+    <h1 class="post-title">The experience of develop a customer wechat bot</h1>
   </header>
 
   <section class="post">
-    <p>花了近三个小时的时间学习通过github搭建免费的个人博客，<br>标榜为五分钟解决的事，居然花了我这么久，<br>其中的坎坷不言而知。  </p>
-<blockquote>
-<ol>
-<li>软件安装<br>软件安装过程中，第一次按照“5分钟 搭建免费个人博客”这片文章进行，命令使用过程中遇到了诸如“是不是这样用的”“这样装就好了吗”等问题，安装过程中的下载阶段还因为网络问题，导致进度很慢，最后安装完成以后，nvm,npm,hexo等命令使用时，出现command not found，找过度娘以后知道应该是环境变量配置的问题，不过Mac环境变量的配置一直不会，搁置，最后直接通过brew install 安装所需软件，问题解决。  </li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="2">
-<li>推送至github时页面显示不一致<br>在本地做测试时，页面显示没问题，但是推送至github以后，访问wetoria.github.io出现诸如头像图片未加载，动态效果未显示等问题，打开调试发现时头像图片找不到，修改了_config.yml中的logo键值对得到解决。  </li>
-</ol>
-</blockquote>
-<p>但是动态效果看报错有点迷糊，不会解决。说是insecure content，但是这块我不懂啊，是什么鬼哦。但是Monniya的Blog能显示啊，我就觉得可能是repo的设置有问题，看了下果然，＝ ＝默认域名只能使用Https协议的内容，但是更改成Https也没用啊。  </p>
-<p>后来百度了下，直接删掉http:，ok问题解决。好坑爹。  </p>
-<p>至此，个人博客已经搭建完毕了，未来还要继续完善，比如，还要添加什么功能，以及我要用它来记录什么呢？</p>
+    <h1 id="The-experience-of-develop-a-customer-wechat-bot"><a href="#The-experience-of-develop-a-customer-wechat-bot" class="headerlink" title="The experience of develop a customer wechat bot"></a>The experience of develop a customer wechat bot</h1><p>background: know about of Electron, some experience of develop, computer and application.</p>
+<h2 id="The-first-step"><a href="#The-first-step" class="headerlink" title="The first step"></a>The first step</h2><p>1.go to the github to search wechat api lib<br>2.search ‘wechat api js’<br>3.search ‘node wechat’<br>4.go to the google to search ‘wechat js api’ and ‘wechat api node’</p>
+<p>When I begin to search wechat lib, I am confused which lib is best to use.But when I continue my search, I realize it is just your feat.</p>
+<p>As I searching the libs, at the begin, I think many libs seem can be use, I stared some libs, then I realized I can pick the lib with the most stars.</p>
+<p>On the process, I find ‘Wechat js SDK’, It has to many infomation to disturb me, ‘Is it useful?’. I looked the things on the website with my patience, finally, I find it is just a util lib which is convenient to let developer to use some function which are in wechat app. So I stopped.</p>
+<p>Then, with more info came into my brain, I finally find two libs, electron-wechat and wechaty, to help me.</p>
+<p>In this journey, I realized, ‘Don’t be afraid, just start the first step, you will find the way out’</p>
 
   </section>
 
@@ -161,19 +154,32 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/09/11/[LeetCode]1.Two Sum/" title="LeetCode-1.Two Sum">LeetCode-1.Two Sum</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2019/07/14/快捷键分享/" title="快捷键分享">快捷键分享</a></h2>
                 <p class="excerpt">
                 
-                LeetCode 1.Two Sum - Solution
+                快捷键分享
+我希望给你们分享的不是具体的几个快捷键，而是学会去构建自己的快捷习惯
+
+我与快捷键最早知道快捷键最开始知道快捷键这个东西，应该是在我小学还是初中时候，去我妈妈的公司时，看到她有一个同事没有点击右下角的QQ，就看到按了两下键盘就开关了QQ界面。那个时候觉得很酷，就回家查了一下怎么做到的，从
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2017-09-10T20:22:10.000Z" class="post-list__meta--date date">2017-09-11</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/LeetCode/">LeetCode</a>
-</span><a class="btn-border-small" href="/2017/09/11/[LeetCode]1.Two Sum/">继续阅读</a></div>
+                <div class="post-list__meta"><time datetime="2019-07-14T05:36:35.954Z" class="post-list__meta--date date">2019-07-14</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="/2019/07/14/快捷键分享/">继续阅读</a></div>
                            
             </div>
         
         
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">更早的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/09/27/axios全局设置取消请求及中断Promise调用链/" title="axios全局设置取消请求及中断Promise调用链">axios全局设置取消请求及中断Promise调用链</a></h2>
+                <p class="excerpt">
+                
+                123456789101112131415161718192021222324252627282930313233```// 获取CancelTokenconst CancelToken = axios.CancelToken;const source = CancelToken.source();
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-09-27T02:01:44.499Z" class="post-list__meta--date date">2018-09-27</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="/2018/09/27/axios全局设置取消请求及中断Promise调用链/">继续阅读</a></div>
+                       
+            </div>
         
      
    
