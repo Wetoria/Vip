@@ -25,7 +25,9 @@
 - 熟悉Ant Design、Element-UI、Kendo-UI等前端UI框架
 - 熟悉RESTful
 - 熟悉Java、SQL、数据库等相关后端开发知识及技能
+- 熟悉常用数据结构及算法
 - 了解浏览器同源策略导致的跨域问题
+- 了解Webpack、node.js
 
 ## 工作经历
 
@@ -53,6 +55,16 @@
 - 负责页面表格数据的导出及导入。前端使用Kendo-UI，根据其提供的导出及导入接口，封装满足相关业务需求的表格数据的导出及导入。
 - 负责汇总统计SQL的优化。优化效果：查询时间缩短为原SQL的十分之一。
 
+#### 华润置地SMS短信服务平台、华润置地OpenAPI项目
+
+- 前端实习生。
+- 负责前端项目的搭建、开发及维护。
+
+#### 华润置地卡券项目、华润置地人天管理系统
+
+- 前端实习生。
+- 学习使用React相关开发技术。
+
 ## 自我评价
 
 - 学习能力优秀。三天看完118小时Java教学并基本掌握基础开发能力，具备React相关前端开发知识的前提下，三天看完Vue、Vue Router、Vuex官网教程及指南。
@@ -61,8 +73,8 @@
 
 ## 技术文章
 
-- [记一次bug调试过程](<https://juejin.im/post/5d4ba40b51882506563b5571>)
-- [个人git知识总结](<https://juejin.im/post/5d579bedf265da03f564e0ad>)
-- [Vue通用自定义Resize组件](<https://juejin.im/post/5d623de56fb9a06b1777c101>)
-- [微信消息转发以及给指定好友发送消息](<https://juejin.im/post/5d6bda81f265da03c23eecb7>)
 - [iOS13正式版更新了，教你如何做时间记录](<https://juejin.im/post/5d846ee7f265da03940243b6>)  
+- [微信消息转发以及给指定好友发送消息](<https://juejin.im/post/5d6bda81f265da03c23eecb7>)
+- [Vue通用自定义Resize组件](<https://juejin.im/post/5d623de56fb9a06b1777c101>)
+- [个人git知识总结](<https://juejin.im/post/5d579bedf265da03f564e0ad>)
+- [记一次bug调试过程](<https://juejin.im/post/5d4ba40b51882506563b5571>)  
