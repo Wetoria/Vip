@@ -131,9 +131,188 @@
     <html>
   <head><meta name="generator" content="Hexo 3.9.0">
     <title>Test</title>
+    <style>
+      :root {
+        --card-width: calc(90vh);
+        --base-width: calc(10vh);
+        --block-height: calc(var(--card-width) * 0.05);
+      }
+      .main {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        z-index: 9999999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .clock {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: var(--card-width);
+        width: max-content;
+        max-height: max-content;
+        max-width: calc(90vw);
+      }
+      .hours, .minutes, .seconds {
+        width: var(--card-width);
+        height: var(--card-width);
+        border-radius: 10px;
+        background: rgba(255,255,255, 1);
+        display: flex;
+      }
+      /* .hours::before,
+      .minutes::before,
+      .seconds::before {
+        content: "";
+        background: black;
+        width: var(--card-width);
+        height: var(--block-height);
+        display: block;
+        top: calc(var(--card-width) * 0.5 + var(--block-height) * 0.5);
+        position: absolute;
+        z-index: 9999;
+      } */
+      .hours span,
+      .minutes span,
+      .seconds span {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        font-size: 14em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+      }
+      .tens span,
+      .units span{
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+        display: flex;
+        background-color: blue;
+      }
+      .tens .new-flipper,
+      .units .new-flipper {
+        position: absolute;
+        background-color: red;
+        transition: transform 0.5s linear;
+        transform-origin: bottom;
+        z-index: 2;
+      }
+      .colon {
+        height: calc(30vh);
+        padding: var(--base-width);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .colon span {
+        display: block;
+        width: var(--base-width);
+        height: var(--base-width);
+        background: white;
+      }
+    </style>
   </head>
   <body>
-    Test
+    <div class="main">
+      <div class="clock">
+        <div class="hours">
+          <span class="tens">
+          </span>
+          <span class="units">
+          </span>
+        </div>
+        <div class="colon"><span></span><span></span></div>
+        <div class="minutes">
+          <span class="tens">
+          </span>
+          <span class="units">
+          </span>
+        </div>
+        <div class="colon"><span></span><span></span></div>
+        <div class="seconds">
+          <span class="tens">
+          </span>
+          <span class="units">
+            <!-- <span class="new"></span>
+            <span class="new-flipper"></span>
+            <span class="old"></span> -->
+          </span>
+        </div>
+      </div>
+    </div>
+    <script>
+      const setTime = (date = new Date()) => {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const times = { hours, minutes, seconds };
+
+        const timeTags = [
+          'seconds',
+          'minutes',
+          'hours',
+        ];
+        timeTags.forEach((item, index) => {
+          const base = 10;
+          const time = times[item];
+          const parentDom = document.getElementsByClassName(item)[0];
+          const digits = [
+            'units',
+            'tens',
+          ];
+          digits.forEach((item, index) => {
+            const dom = parentDom.getElementsByClassName(item)[0];
+            const newValue = Math.floor(index == 0 ? time % base : time / base);
+            dom.innerHTML = newValue;
+
+
+            // const flipper = dom.getElementsByClassName('new-flipper')[0];
+            // if (flipper) {
+            //   flipper.style.transform = 'rotateX(180deg)';
+            //   flipper.style.zIndex = 4;
+            //   const timeouter = setTimeout(() => {
+            //     flipper.style.transform = 'rotateX(359deg)';
+            //     flipper.style.zIndex = 2;
+            //     clearTimeout(timeouter);
+            //   }, 500)
+            // }
+
+            // console.log(dom, flipper);
+            // const oldValue = flipper.getAttribute('value');
+            // const valueChanged = oldValue != newValue;
+            // // if (valueChanged) {
+            //   flipper.setAttribute('value', newValue);
+            //   const front = flipper.getElementsByClassName('front')[0];
+            //   const back = flipper.getElementsByClassName('back')[0];
+            //   const frontValue = front.innerHTML;
+            //   const backValue = back.innerHTML;
+            //   const isFront = frontValue == oldValue;
+            //   back.innerHTML = isFront ? newValue : backValue;
+            //   front.innerHTML = isFront ? frontValue : newValue;
+            //   flipper.style.transform = `rotateX(${isFront ? 180 : 0}deg)`;
+            // // }
+          });
+        });
+      };
+      setTime();
+      const refreshTime = () => {
+        setTime();
+      };
+      setInterval(refreshTime, 1000);
+    </script>
   </body>
 </html>
   </section>
