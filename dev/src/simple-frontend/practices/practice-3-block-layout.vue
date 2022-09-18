@@ -88,6 +88,70 @@
         <div class="left"></div>
         <div class="right"></div>
       </div>
+
+
+      <h1>第9题</h1>
+      <p>实现下面这个布局。并且改变浏览器窗口依旧是如下效果。</p>
+      <div class="main q9">
+        <div class="q9-main-area">
+          <div class="left">固定宽度 200px</div>
+          <div class="right">固定宽度 200px</div>
+        </div>
+      </div>
+
+
+      <h1>第10题</h1>
+      <p>实现下面这个布局。并且改变浏览器窗口依旧是如下效果。</p>
+      <div class="main q10">
+        <div class="q10-main-area">
+          <div class="left">固定宽度 200px</div>
+          <div class="right">固定宽度 200px</div>
+        </div>
+      </div>
+
+      <h1>第11题</h1>
+      <p>实现下面这个布局。并且改变浏览器窗口依旧是如下效果。</p>
+      <div class="main q9">
+        <div class="q9-main-area">
+          <div class="left">固定宽度 200px</div>
+          <div class="left">固定宽度 200px</div>
+          <div class="right">固定宽度 200px</div>
+        </div>
+      </div>
+
+      <h1>第12题</h1>
+      <p>实现下面这个布局。并且改变浏览器窗口依旧是如下效果。</p>
+      <div class="main q10">
+        <div class="q10-main-area">
+          <div class="left">固定宽度 200px</div>
+          <div class="left">固定宽度 200px</div>
+          <div class="right">固定宽度 200px</div>
+        </div>
+      </div>
+
+      <h1>第13题</h1>
+      <p>实现下面这个布局。并且改变浏览器窗口依旧是如下效果。</p>
+      <div class="main q9">
+        <div class="q9-main-area">
+          <div class="left">固定宽度 200px</div>
+          <div class="left">固定宽度 200px</div>
+          <div class="right">固定宽度 200px</div>
+          <div class="right">固定宽度 200px</div>
+        </div>
+      </div>
+
+
+      <h1>第14题</h1>
+      <p>实现下面这个布局。并且改变浏览器窗口依旧是如下效果。</p>
+      <div class="main q10">
+        <div class="q10-main-area">
+          <div class="left">固定宽度 200px</div>
+          <div class="left">固定宽度 200px</div>
+          <div class="right">固定宽度 200px</div>
+          <div class="right">固定宽度 200px</div>
+        </div>
+      </div>
+
     </div>
     <BackButton path="./index">返回练习目录</BackButton>
   </div>
@@ -182,7 +246,9 @@ h1 {
 }
 
 .main, .left, .right, .middle, .square, .q3-main-area,
-.q4-main-area {
+.q4-main-area,
+.q9-main-area,
+.q10-main-area {
   border: 2px solid #18B36B;
   border-radius: 10px;
 }
@@ -218,5 +284,45 @@ h1 {
 }
 .q8 .left {
   margin-right: 10px;
+}
+
+.main.q9 {
+  align-items: center;
+}
+.q9-main-area {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.q9 .left,
+.q9 .right {
+  width: 200px;
+  height: 64px;
+  text-align: center;
+  line-height: 64px;
+}
+
+
+
+.main.q10 {
+  align-items: center;
+}
+.q10-main-area {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+
+.q10 .left,
+.q10 .right {
+  width: 200px;
+  height: 64px;
+  text-align: center;
+  line-height: 64px;
 }
 </style>
