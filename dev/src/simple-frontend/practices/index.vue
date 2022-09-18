@@ -10,50 +10,11 @@
 </template>
 
 <script setup>
-const practicesList = [
-  {
-    path: './practice-resume-html'
-  },
-  {
-    path: './practice-resume-css'
-  },
-  {
-    path: './'
-  },
-  {
-    path: './'
-  },
-  {
-    path: './'
-  },
-  {
-    path: './'
-  },
-  { 
-    path: './'
-  },
-  {
-    path: './'
-  },
-  {
-    path: './'
-  },
-  {
-    path: './'
-  },
-  {
-    path: './'
-  },
-  {
-    path: './'
-  },
-  {
-    path: './'
-  },
-  {
-    path: './'
-  },
-]
+const practices = import.meta.glob('./*')
+
+const practicesList = Object.keys(practices)
+  .filter(i => !i.includes('index'))
+  .map(i => ({ path: i.split('.vue')[0]  }))
 </script>
 
 <style scoped>

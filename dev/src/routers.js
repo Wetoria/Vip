@@ -4,23 +4,30 @@ import {
 } from 'vue-router'
 
 import Home from './Index'
-import PracticesHome from './simple-frontend/practices'
-import Practices1 from './simple-frontend/practices/practice-resume-html'
-import Practices2 from './simple-frontend/practices/practice-resume-css'
 
-const routes = [{
-  path: '/',
-  component: Home,
-}, {
-  path: '/simple-frontend/practices/index',
-  component: PracticesHome,
-}, {
-  path: '/simple-frontend/practices/practice-resume-html',
-  component: Practices1,
-}, {
-  path: '/simple-frontend/practices/practice-resume-css',
-  component: Practices2,
-}]
+function converFilesToRoutes(modules)  {
+  const results = []
+  for (const filePath in modules) {
+    const path =  filePath.split('.')[1]
+    const component = modules[filePath]
+    results.push({
+      path,
+      component,
+    })
+  }
+  return results
+}
+
+const practiceRoutes = converFilesToRoutes(import.meta.glob('./simple-frontend/practices/*'))
+
+const routes = [
+  {
+    path: '/',
+    component: Home,
+  },
+  ...practiceRoutes,
+]
+
 
 export default createRouter({
   history: createWebHashHistory(),
