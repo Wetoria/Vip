@@ -5,7 +5,8 @@ import {
 
 import Home from './Index'
 import PracticesHome from './simple-frontend/practices'
-import Practices1 from './simple-frontend/practices/practice1'
+import Practices1 from './simple-frontend/practices/practice-resume-html'
+import Practices2 from './simple-frontend/practices/practice-resume-css'
 
 const routes = [{
   path: '/',
@@ -14,8 +15,11 @@ const routes = [{
   path: '/simple-frontend/practices/index',
   component: PracticesHome,
 }, {
-  path: '/simple-frontend/practices/practice1',
+  path: '/simple-frontend/practices/practice-resume-html',
   component: Practices1,
+}, {
+  path: '/simple-frontend/practices/practice-resume-css',
+  component: Practices2,
 }]
 
 export default createRouter({

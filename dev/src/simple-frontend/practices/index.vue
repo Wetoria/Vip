@@ -12,10 +12,10 @@
 <script setup>
 const practicesList = [
   {
-    path: './practice1'
+    path: './practice-resume-html'
   },
   {
-    path: './'
+    path: './practice-resume-css'
   },
   {
     path: './'
