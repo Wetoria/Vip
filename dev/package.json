@@ -6,7 +6,7 @@
     "build": "vite build",
     "move": "rm -rf ../dist && mv ./dist/index.html ../ && mv ./dist ../",
     "publish-local": "npm run build && npm run move",
-    "publish": "npm run publish-local && git add . && git commit -m 'publish' && git push",
+    "publish": "npm run publish-local && git add -A && git commit -m 'publish' && git push",
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
