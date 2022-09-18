@@ -11,7 +11,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
 onMounted(() => {
   console.log('test');
-  window.open('./blog/index.html', '_self');
+  window.open('./Blog/index.html', '_self');
 }) 
 
 </script>
