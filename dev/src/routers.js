@@ -23,11 +23,21 @@ const practiceRoutes = converFilesToRoutes(import.meta.glob('./simple-frontend/p
 const routes = [
   {
     path: '/',
+    name: 'Home',
     component: Home,
+    children: [
+    ],
   },
   ...practiceRoutes,
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: {
+      name: 'Home',
+    },
+  },
 ]
 
+console.log(routes)
 
 export default createRouter({
   history: createWebHashHistory(),

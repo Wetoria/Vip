@@ -6,6 +6,7 @@
       >
         <router-link :to="item.path">第{{ index + 1 }}题</router-link>
       </span>
+      <BackButton path="/">返回主页</BackButton>
     </div>
 </template>
 
