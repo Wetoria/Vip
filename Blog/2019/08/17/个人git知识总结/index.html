@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>个人git知识总结 | Wetoria</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="Fake it until become it">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="个人git知识总结 | Wetoria">
+    <meta name="twitter:description" content="Fake it until become it">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="个人git知识总结 | Wetoria">
+    <meta property="og:description" content="Fake it until become it">
+
+    
+    <meta name="author" content="Vip">
+    
+    <link rel="stylesheet" href="./css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="./images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+
+    <link rel="canonical" href="http://yoursite.com/2019/08/17/个人git知识总结/"/>
+
+    
+
+    
+      
+</head>
+
+<body class="home-template no-js">
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(./images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="./" title="前往 Wetoria 的主页"><img src="./images/wetoria.jpg" width="80" alt="Wetoria logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="./" title="link to homepage for Wetoria">Wetoria</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Fake it until become it</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="./#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/wetoria" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-slate"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-08-17T09:30:18.788Z" class="post-list__meta--date date">2019-08-17</time> &#8226; <span class="post-meta__tags tags">于&nbsp; </span>
+      <span class="page-pv">
+      &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">个人git知识总结</h1>
+  </header>
+
+  <section class="post">
+    <p>个人常用的git命令以及相关知识总结，具体git命令的介绍可以查看<a href="https://git-scm.com/" target="_blank" rel="noopener">官网</a>。</p>
+<h2 id="1-常用命令一览"><a href="#1-常用命令一览" class="headerlink" title="1.常用命令一览"></a>1.常用命令一览</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">// 每个命令下的缩进为该命令下的一些参数或操作</span><br><span class="line">1.init</span><br><span class="line">2.status</span><br><span class="line">3.diff</span><br><span class="line">  head</span><br><span class="line">4.add</span><br><span class="line">  .</span><br><span class="line">  dir-path</span><br><span class="line">  file-path</span><br><span class="line">5.commit</span><br><span class="line">  -m</span><br><span class="line">  --amend</span><br><span class="line">6.rebase</span><br><span class="line">  -i head~n</span><br><span class="line">7.log</span><br><span class="line">  -p</span><br><span class="line">  --graph</span><br><span class="line">8.reflog</span><br><span class="line">9.checkout</span><br><span class="line">  -b branch-name</span><br><span class="line">  -- dir-path/file-path</span><br><span class="line">10.branch</span><br><span class="line">  -a</span><br><span class="line">  -d branch-name</span><br><span class="line">  -D branch-name</span><br><span class="line">11.merge branch-name</span><br><span class="line">12.pull</span><br><span class="line">  origin branch-name</span><br><span class="line">13.push</span><br><span class="line">  --set-upstream origin branch-name</span><br><span class="line">14.reset</span><br><span class="line">  --hard commit-hash</span><br><span class="line">  head dir-path/file-path</span><br><span class="line">15.stash</span><br><span class="line">  pop</span><br></pre></td></tr></table></figure>
+<h2 id="2-常用命令使用场景"><a href="#2-常用命令使用场景" class="headerlink" title="2.常用命令使用场景"></a>2.常用命令使用场景</h2><h3 id="1-init"><a href="#1-init" class="headerlink" title="1.init"></a>1.init</h3><blockquote>
+<p>新建项目时，初始化一个文件夹作为git仓库。</p>
+</blockquote>
+<h3 id="2-status"><a href="#2-status" class="headerlink" title="2.status"></a>2.status</h3><blockquote>
+<p>查看被修改的文件有哪些。</p>
+</blockquote>
+<p><strong>使用场景：在每次提交代码前使用，用于确认修改过的文件有哪些，避免提交用于测试而不需要提交的文件的前置操作。</strong></p>
+<p>具体使用场景：对接后端开发环境修改了<code>axios.js</code>的配置，为避免影响线上环境，不应提交该文件，并在提交其他功能相关的文件以后，应回退对<code>axios.js</code>的修改。</p>
+<h3 id="3-diff"><a href="#3-diff" class="headerlink" title="3.diff"></a>3.diff</h3><blockquote>
+<p>查看文件中具体的修改。<code>diff</code>命令将会显示<code>工作区</code>中文件的具体修改差异，经过<code>add</code>操作的文件，需要使用<code>diff head</code>查看具体差异。</p>
+</blockquote>
+<p><strong>使用场景：在提交代码前，确认每处修改是否正确，以及代码中是否有多余的修改。</strong></p>
+<p>具体使用场景：我在进行<code>add</code>和<code>commit</code>操作前，会使用<code>diff</code>/<code>diff head</code>对文件进行检查，看是否有<code>console.log</code>没有删除。<br>(我们的项目中开发环境允许使用<code>console.log</code>进行调试，但在<code>commit</code>前会对修改过的文件中是否留有<code>console.log</code>进行检查。)还会用来检验是否有错别字，或者在某个不经意间敲了键盘，增加了多余的代码。</p>
+<h3 id="4-add"><a href="#4-add" class="headerlink" title="4.add"></a>4.add</h3><blockquote>
+<p>用于将<code>工作区</code>中的文件添加至<code>暂存区</code>，为<code>commit</code>操作做准备。可以使用<code>add .</code>添加所有<code>工作区</code>中的文件，也可以使用<code>add &#39;文件路径&#39;</code>/<code>add &#39;文件夹路径&#39;</code>，添加单个文件或单个文件夹路径下的所有文件。</p>
+</blockquote>
+<p>使用场景：<code>commit</code>前，将<code>工作区</code>中的文件添加至<code>暂存区</code>。</p>
+<p>具体使用场景：<code>add s/p</code> =&gt; <code>tab 补全</code> =&gt; <code>add src/public</code>，将<code>public</code>文件夹下的文件添加至暂存区。<strong>这里主要是想介绍通过<code>文件路径</code>/<code>文件夹路径</code>添加特定的文件。</strong></p>
+<h3 id="5-commit"><a href="#5-commit" class="headerlink" title="5.commit"></a>5.commit</h3><blockquote>
+<p>提交暂存区中的文件，形成一次提交记录。平时主要使用<code>commit -m &#39;对本次提交的说明&#39;</code>，说明中注明本次提交所涉及的相关功能，以便于在日后的维护中，可以便捷的了解本次提交做了什么操作。</p>
+</blockquote>
+<p><strong>使用场景：功能或任务完成后，提交相应文件。</strong></p>
+<h4 id="5-1-–amend"><a href="#5-1-–amend" class="headerlink" title="5.1 –amend"></a>5.1 –amend</h4><blockquote>
+<p>修改上一次<code>commit</code>中的错误。如果因为手误导致提交了错误的<code>commit</code>信息，可以使用<code>commit --amend</code>修改上一次的提交信息。</p>
+</blockquote>
+<h4 id="5-2-commit时机"><a href="#5-2-commit时机" class="headerlink" title="5.2 commit时机"></a>5.2 commit时机</h4><p>如果想更好的对版本进行管理，需要控制好commit的时机，如果每修改一行代码就进行一次提交，将能对整个git仓库中的文件进行行级别的版本控制。不过这种操作方式很不便利，个人使用的是实现某个功能后，便对代码进行一次提交，当对下一个功能进行开发时，遇到阻碍时，则可以使用<code>git checkout -- src</code>回退所有的修改，从头再来，这样可以保持每段时间内只修改部分功能，而不会出现一次开发过程中存在大量文件被修改，提交时忘记去除临时代码，以及避免一段时间开发后直接<code>commit -a</code>。如何避免开发一个功能存在n多提交信息的问题，请看下一节<code>rebase</code>命令。</p>
+<h3 id="6-rebase-i-head-n"><a href="#6-rebase-i-head-n" class="headerlink" title="6.rebase -i head~n"></a>6.rebase -i head~n</h3><blockquote>
+<p>对n个最新的提交进行操作。使用该命令后，会pick最新的n条提交记录，通过将<code>pick</code>修改为[<code>edit</code>|<code>squash</code>|<code>fixup</code>]，对提交记录进行[<code>修改</code>|<code>合并</code>|<code>合并并丢弃该提交</code>]</p>
+</blockquote>
+<p>使用场景：</p>
+<ul>
+<li>1.修改某个项目组成员的某个提交。</li>
+<li>2.功能开发完毕以后，将多个提交合并成一个。</li>
+</ul>
+<h3 id="7-log"><a href="#7-log" class="headerlink" title="7.log"></a>7.log</h3><blockquote>
+<p>显示当前分支的提交历史。<br><code>-p</code>参数：显示提交历史以及文件中具体的修改。<br><code>--graph</code>参数：显示提交历史以及分支操作的图标形式。</p>
+</blockquote>
+<h3 id="8-reflog"><a href="#8-reflog" class="headerlink" title="8.reflog"></a>8.reflog</h3><blockquote>
+<p>显示当前仓库所有的操作历史，除了提交记录，还有分支操作记录。</p>
+</blockquote>
+<h3 id="9-checkout"><a href="#9-checkout" class="headerlink" title="9.checkout"></a>9.checkout</h3><blockquote>
+<p>切换分支/回滚文件。<br><code>checkout branch-name</code>：切换分支。<br><code>checkout -b branch-name</code>：将会创建并切换至该分支。<br><code>checkout -- &#39;文件路径&#39;/&#39;文件夹路径&#39;</code>：回滚单个文件，或文件夹下的所有文件。<br>在远程仓库新建了<code>branchA</code>，在本地拉取代码以后，可以通过<code>checkout branchA</code>直接基于远程分支创建并切换至<code>branchA</code>。</p>
+</blockquote>
+<h3 id="10-branch"><a href="#10-branch" class="headerlink" title="10.branch"></a>10.branch</h3><blockquote>
+<p><code>branch</code>：显示当前分支及本地所有分支。<br><code>branch -a</code>：显示当前分支以及本地及远程仓库的所有分支。<br><code>branch branch-name</code>：创建<code>branch-name</code>分支。<br><code>branch -d branch-name</code>：删除<code>branch-name</code>分支。如果分支被合并了以后，可以进行删除操作，否则会报错。<br><code>branch -D branch-name</code>：强制删除<code>branch-name</code>分支。</p>
+</blockquote>
+<h3 id="11-merge"><a href="#11-merge" class="headerlink" title="11.merge"></a>11.merge</h3><blockquote>
+<p><code>merge branch-name</code>：将<code>branch-name</code>分支合并至当前分支。  </p>
+</blockquote>
+<h3 id="12-pull"><a href="#12-pull" class="headerlink" title="12.pull"></a>12.pull</h3><blockquote>
+<p><code>pull</code>：在设置了上游分支的情况下，拉取当前分支在远程仓库中的最近版本到本地分支。<br><code>pull origin branch-name</code>：拉取远程仓库中的<code>branch-name</code>的最新版本到当前本地分支。</p>
+</blockquote>
+<p>推荐在每天上午开始工作前、中午、晚上进行<code>pull</code>操作，防止没有拉取新代码导致合并时出现冲突。项目使用敏捷看板进行项目管理，每次开发新任务前会进行<code>pull</code>操作，以保证开发新功能时，本地代码是最新版本。</p>
+<h3 id="13-push"><a href="#13-push" class="headerlink" title="13.push"></a>13.push</h3><blockquote>
+<p><code>push</code>：在设置了上游分支的情况下，将当前分支推送至远程仓库中设置的上游分支。如果远程仓库中，上游分支被删除了，该操作会重新创建对应的新分支。<br><code>push --set-upstream origin branch-name</code>：将<code>branch-name</code>分支推送至远程仓库中，并将远程仓库中的<code>branch-name</code>设置为该分支的上游分支。</p>
+</blockquote>
+<h3 id="14-reset"><a href="#14-reset" class="headerlink" title="14.reset"></a>14.reset</h3><blockquote>
+<p><code>reset --hard commit-hash</code>：回退代码至指定<code>commit-hash</code>的版本。需要进行回退操作时，通过<code>log</code>命令查询需要回退的代码版本，记录<code>commit</code>的<code>hash</code>值，一般取前七位就可以，与<code>reflog</code>保持一致。如果要回到最新版本，使用<code>reflog</code>找到最新版本的<code>hash</code>，然后<code>reset --hard latest-hash</code>即可。<br><code>reset head file-path/dir-path</code>：将<code>暂存区</code>中的文件移至工作区。<code>add</code>了错误的文件至<code>暂存区</code>时，可以通过该命令移出。</p>
+</blockquote>
+<h3 id="15-stash"><a href="#15-stash" class="headerlink" title="15.stash"></a>15.stash</h3><blockquote>
+<p><code>stash</code>：“临时储藏”当前修改。有时候做了文件修改以后，需要进行切换分支或者<code>pull</code>操作时，会提示有未提交的修改，可以通过该命令储藏当前修改，在进行了如<code>pull</code>等其他操作以后，再通过<code>git stash pop</code>恢复储藏的代码。  </p>
+</blockquote>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h2><p>这篇文章记录了个人开发过程中常用的一些git命令，以及对其的一些理解，本文没有记录命令的具体效果，只记录了一些自己经常使用的情况。其中对于 <strong><code>commit</code>时机、 通过文件夹路径<code>add</code>文件、 通过<code>status</code>以及<code>diff</code>确认修改的文件及内容</strong>，是作为一个好的开发人员，在协同工作中需要注意的地方。</p>
+
+  </section>
+
+</article>
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">最近的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="./2019/08/28/Vue通用自定义Resize组件/" title="Vue通用自定义Resize组件">Vue通用自定义Resize组件</a></h2>
+                <p class="excerpt">
+                
+                1.背景项目基于Vue+Element-UI，新接到的需求是点击按钮能够从右侧弹出一个页面，并能控制该弹出页面的宽度。在Element-UI中有一个抽屉(Drawer)组件，支持点击从浏览器侧边弹出，但不能实现宽度的调整，于是自己想到实现一个通用的Resize组件，以后如果要使用时，可以直接引入。
+
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-08-28T12:09:26.523Z" class="post-list__meta--date date">2019-08-28</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="./tags/Vue/">Vue</a>
+</span><a class="btn-border-small" href="./2019/08/28/Vue通用自定义Resize组件/">继续阅读</a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">更早的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="./2019/07/14/快捷键分享/" title="快捷键分享">快捷键分享</a></h2>
+                <p class="excerpt">
+                
+                
+我希望给你们分享的不是具体的几个快捷键，而是学会去构建自己的快捷习惯
+
+我与快捷键最早知道快捷键最开始知道快捷键这个东西，应该是在我小学还是初中时候，去我妈妈的公司时，看到她有一个同事没有点击右下角的QQ，就看到按了两下键盘就开关了QQ界面。那个时候觉得很酷，就回家查了一下怎么做到的，从此就离不开
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-07-14T05:36:35.954Z" class="post-list__meta--date date">2019-07-14</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="./2019/07/14/快捷键分享/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+            
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2020 - 本站由 <a href="./">@Wetoria</a> 创建,
+        使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">hexo-theme-new-vno</a> 主题,
+        修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+    </span>
+</footer>
+        </div>
+    </div>
+
+    
+
+     
+    
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    
+    </script>
+    
+</body>
+</html>
