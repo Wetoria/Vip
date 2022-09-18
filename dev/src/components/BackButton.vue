@@ -14,7 +14,7 @@
 
 <style>
   .back-btn {
-    padding: 4px 10px;
+    padding: 4px 10px !important;
     border: 2px solid var(--theme-color);
     border-radius: 8px;
     cursor: pointer;
