@@ -1,21 +1,9 @@
 <template>
-  
+  <router-view></router-view>
 </template>
 
-
-
 <script setup>
-import { onMounted } from '@vue/runtime-core'
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-
-onMounted(() => {
-  console.log('test');
-  // window.open('./Blog/index.html', '_self');
-}) 
-
 </script>
-
 
 <style scoped>
 header {
