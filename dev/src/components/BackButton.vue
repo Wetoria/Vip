@@ -15,12 +15,12 @@
 <style>
   .back-btn {
     padding: 4px 10px;
-    border: 1px solid var(--theme-color);
+    border: 2px solid var(--theme-color);
     border-radius: 8px;
     cursor: pointer;
     position: fixed;
-    top: 10px;
-    left: 20px;
+    top: 20px;
+    right: 20px;
     transition: 0.4s;
   }
   .back-btn:hover {

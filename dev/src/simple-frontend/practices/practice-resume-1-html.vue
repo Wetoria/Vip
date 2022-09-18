@@ -63,8 +63,16 @@
         </ul>
       </div>
     </div>
+    <BackButton path="./index">返回练习目录</BackButton>
   </div>
 </template>
+
+<script>
+export default {
+  questionDesc: '基础 HTML 练习',
+}
+</script>
+
 
 <style scoped>
 .container {
