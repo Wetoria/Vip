@@ -169,6 +169,9 @@
   margin: 0;
   overflow: hidden;
 }
+body {
+  margin: 0;
+}
 
 .container {
   width: calc(100% - 40px);
