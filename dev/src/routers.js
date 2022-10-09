@@ -4,6 +4,7 @@ import {
 } from 'vue-router'
 
 import Home from './Index'
+import XHS from './XHS'
 
 function converFilesToRoutes(modules)  {
   const results = []
@@ -29,6 +30,11 @@ const routes = [
     ],
   },
   ...practiceRoutes,
+  {
+    path: '/xhs',
+    name: 'XHS',
+    component: XHS,
+  },
   {
     path: '/:pathMatch(.*)*',
     redirect: {
