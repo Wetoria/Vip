@@ -36,7 +36,7 @@
         <div 
           class="image-item"
           :style="{
-            background: `url(${item}) no-repeat`,
+            background: `url(${item}.jpeg) no-repeat`,
             backgroundSize: `100%`,
           }"
         >
