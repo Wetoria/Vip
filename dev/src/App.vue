@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+  const test = "Test"
 </script>
 
 <style scoped>

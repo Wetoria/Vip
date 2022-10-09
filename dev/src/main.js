@@ -17,5 +17,6 @@ for (const key in globalComponents) {
   app.component(name, globalComponents[key].default)
 }
 
+window.vm = app;
 
 app.mount('#app')
