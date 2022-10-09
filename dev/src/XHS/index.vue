@@ -85,6 +85,7 @@ export default {
     },
     handleShowPic() {
       this.images = this.tempInput.split('，').filter(i => i)
+      
     },
     handleOperation(path, preview) {
       const downloadElement = document.createElement('a');
