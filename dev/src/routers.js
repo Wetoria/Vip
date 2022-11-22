@@ -57,7 +57,6 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = 'Wetoria｜极简化前端'
   next()
 })
 
