@@ -5,6 +5,7 @@ import {
 
 import Home from './Index'
 import XHS from './XHS'
+import ContactMe from './Weixin/ContactMe'
 
 function converFilesToRoutes(modules)  {
   const results = []
@@ -31,6 +32,11 @@ const routes = [
   },
   ...practiceRoutes,
   {
+    path: '/contact',
+    name: 'ContactMe',
+    component: ContactMe,
+  },
+  {
     path: '/xhs',
     name: 'XHS',
     component: XHS,
@@ -45,7 +51,14 @@ const routes = [
 
 console.log(routes)
 
-export default createRouter({
+const router = createRouter({
   history: createWebHashHistory(),
   routes,
 })
+
+router.beforeEach((to, from, next) => {
+  document.title = 'Wetoria｜极简化前端'
+  next()
+})
+
+export default router
