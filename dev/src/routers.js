@@ -5,6 +5,7 @@ import {
 
 import Home from './Index'
 import XHS from './XHS'
+import InputConvert from './Tools/InputConvert'
 import ContactMe from './Weixin/ContactMe'
 
 function converFilesToRoutes(modules)  {
@@ -40,6 +41,11 @@ const routes = [
     path: '/xhs',
     name: 'XHS',
     component: XHS,
+  },
+  {
+    path: '/input-convert',
+    name: 'InputConvert',
+    component: InputConvert,
   },
   {
     path: '/:pathMatch(.*)*',
