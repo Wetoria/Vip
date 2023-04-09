@@ -7,6 +7,7 @@ import Home from './Index'
 import XHS from './XHS'
 import InputConvert from './Tools/InputConvert'
 import ContactMe from './Weixin/ContactMe'
+import Jumper from './Jumper'
 
 function converFilesToRoutes(modules)  {
   const results = []
@@ -49,9 +50,11 @@ const routes = [
   },
   {
     path: '/:pathMatch(.*)*',
-    redirect: {
-      name: 'Home',
-    },
+    name: 'Jumper',
+    component: Jumper,
+    // redirect: {
+    //   name: 'Home',
+    // },
   },
 ]
 
