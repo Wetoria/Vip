@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "vite build",
     "move": "rm -rf ../dist && mv ./dist/index.html ../ && mv ./dist ../",
-    "change-version": "node ./src/Tools/ChangeVersion.mjs",
+    "change-version": "node ./src/Tools/ChangeVersion.js",
     "publish-local": "npm run build && npm run move",
     "publish": "npm run change-version && npm run publish-local && git add -A && git commit -m 'publish' && git push",
     "preview": "vite preview --port 4173"
