@@ -1,6 +1,6 @@
 import {
   createRouter,
-  createWebHashHistory
+  createWebHistory
 } from 'vue-router'
 
 import Home from './Index'
@@ -61,7 +61,7 @@ const routes = [
 console.log(routes)
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 })
 
