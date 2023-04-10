@@ -21,13 +21,13 @@
 
 <script setup>
 import SimpleFrontend from './simple-frontend'
-import axios from 'axios'
 import {ref} from 'vue'
 import DefaultSystemInfo from '../public/data/SystemInfo.json'
+import {getProjectData} from './Tools/request'
 
 
 const SystemInfo = ref(DefaultSystemInfo)
-axios.get('./dist/data/SystemInfo.json').then((res) => {
+getProjectData('/data/SystemInfo.json').then((res) => {
   console.log('res is ', res)
   SystemInfo.value = res?.data || {}
 })

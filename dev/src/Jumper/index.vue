@@ -5,13 +5,13 @@
 <script setup lang="ts">
 import {useRoute, useRouter} from 'vue-router'
 import { onMounted } from 'vue';
-import axios from 'axios';
+import {getProjectData} from '../Tools/request'
 
 const route = useRoute();
 const router = useRouter();
 
 const getMap = async () => {
-  const res = await axios.get('./data/Jumper.json')
+  const res = await getProjectData(`/data/Jumper.json`)
   const formatPath = route.path.replace('/dist', '')
   const stopJump = route?.query?.stop === null
   console.log('res is ', res)
