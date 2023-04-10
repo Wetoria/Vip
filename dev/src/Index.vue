@@ -21,7 +21,7 @@
 
 <script setup>
 import SimpleFrontend from './simple-frontend'
-import SystemInfo from '/public/data/SystemInfo.js'
+import SystemInfo from '/public/data/SystemInfo.mjs'
 
 const version = SystemInfo.version
 </script>
