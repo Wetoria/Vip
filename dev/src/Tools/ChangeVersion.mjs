@@ -10,5 +10,10 @@ newVersion[2] = newThirdVersion
 SystemInfo.version = newVersion.join('.')
 console.log('New System info is ', JSON.stringify(SystemInfo, null, 2));
 
-// import fs from 'fs'
+import fs from 'fs'
+try {
+  fs.writeFileSync('../../public/data/SystemInfo.mjs', JSON.stringify(SystemInfo, null, 2))
+} catch (err) {
+  console.error(err)
+}
 
