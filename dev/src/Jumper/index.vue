@@ -1,10 +1,10 @@
 <template>
-  <span>This is Jumper Page</span>
+  <span></span>
 </template>
 
 <script setup lang="ts">
 import {useRoute, useRouter} from 'vue-router'
-import { onMounted } from 'vue';
+import { onBeforeMount } from 'vue';
 import {getProjectData} from '../Tools/request'
 
 const route = useRoute();
@@ -28,7 +28,7 @@ const getMap = async () => {
     }
   }
 }
-onMounted(() => {
+onBeforeMount(() => {
   getMap()
 })
 </script>
