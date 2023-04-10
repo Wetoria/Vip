@@ -3,12 +3,14 @@
 </template>
 
 <script setup lang="ts">
-import JumpMap from '/public/Jumper'
+import JumpMap from '/public/data/Jumper'
 import {useRoute, useRouter} from 'vue-router'
 
 const route = useRoute();
-const target = JumpMap[route.path]
+const formatPath = route.path.replace('/dist', '')
+const target = JumpMap[formatPath]
 const stopJump = route?.query?.stop === null
+console.log('Jumper ', route, route.path, target, stopJump)
 
 if (!stopJump) {
   if (target) {
