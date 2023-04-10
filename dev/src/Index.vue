@@ -15,15 +15,22 @@
         font-size: 12px;
       "
     >
-    版本: {{ version }}</span>
+    版本: {{ SystemInfo.version }}</span>
   </div>
 </template>
 
 <script setup>
 import SimpleFrontend from './simple-frontend'
-import SystemInfo from '/public/data/SystemInfo.mjs'
+import axios from 'axios'
+import {ref} from 'vue'
+import DefaultSystemInfo from '../public/data/SystemInfo.json'
 
-const version = SystemInfo.version
+
+const SystemInfo = ref(DefaultSystemInfo)
+axios.get('./dist/data/SystemInfo.json').then((res) => {
+  console.log('res is ', res)
+  SystemInfo.value = res?.data || {}
+})
 </script>
 
 <style scoped>

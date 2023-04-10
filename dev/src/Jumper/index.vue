@@ -3,25 +3,32 @@
 </template>
 
 <script setup lang="ts">
-import JumpMap from '/public/data/Jumper'
 import {useRoute, useRouter} from 'vue-router'
+import { onMounted } from 'vue';
+import axios from 'axios';
 
 const route = useRoute();
-const formatPath = route.path.replace('/dist', '')
-const target = JumpMap[formatPath]
-const stopJump = route?.query?.stop === null
-console.log('Jumper ', route, route.path, target, stopJump)
+const router = useRouter();
 
-if (!stopJump) {
-  if (target) {
-    window.location.href = target
-  } else {
-    const router = useRouter();
-    router.replace({
-      name: 'Home'
-    })
+const getMap = async () => {
+  const res = await axios.get('./data/Jumper.json')
+  const formatPath = route.path.replace('/dist', '')
+  const stopJump = route?.query?.stop === null
+  console.log('res is ', res)
+  const map = res?.data || {}
+  const target = map[formatPath]
+  console.log('Jumper ', map, route, route.path, target, stopJump)
+  if (!stopJump) {
+    if (target) {
+      window.location.href = target
+    } else {
+      router.replace({
+        name: 'Home'
+      })
+    }
   }
 }
-
-
+onMounted(() => {
+  getMap()
+})
 </script>
