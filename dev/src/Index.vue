@@ -7,11 +7,23 @@
       <span>前端学习平台：<a href="https://www.yuque.com/wetoria/simplest-frontend">极简化前端</a></span><br />
       <span>练习项目地址：<router-link to="/simple-frontend/practices/index">Practices</router-link></span><br />
     </span>
+    <span
+      style="
+        position: absolute;
+        bottom: 0;
+        opacity: 0.4;
+        font-size: 12px;
+      "
+    >
+    版本: {{ version }}</span>
   </div>
 </template>
 
 <script setup>
 import SimpleFrontend from './simple-frontend'
+import SystemInfo from '/public/data/SystemInfo.js'
+
+const version = SystemInfo.version
 </script>
 
 <style scoped>
