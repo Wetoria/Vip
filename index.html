@@ -5,7 +5,12 @@
     <link rel="icon" href="/dist/favicon.ico" />
     <title>Wetoria｜I'm Vip</title>
     <script>
-      location.href = 'https://simplest-frontend.feishu.cn/wiki/wikcnHmIs4HagSlJPiti2VESQEh'
+      const currentUrl = new URL(location.href)
+      const map = {
+        '/resume': 'https://simplest-frontend.feishu.cn/docx/Yen4dQeQPoDdiHxXvlJce2ylnOh',
+      }
+      const newUrl = map[currentUrl.path] || 'https://simplest-frontend.feishu.cn/wiki/wikcnHmIs4HagSlJPiti2VESQEh'
+      location.href = newUrl
     </script>
   </head>
   <body>
