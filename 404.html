@@ -2,15 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta property="og:title" content="点击添加微信，了解更多详情">
-    <meta property="og:image" content="https://github.com/Wetoria/Vip/blob/master/dist/theme_photo.jpg">
-    <link rel="icon" href="/dist/favicon.ico" />
-    <title>Wetoria｜极简化前端</title>
-    <script type="module" crossorigin src="/dist/assets/index.34cff2f1.js"></script>
-    <link rel="stylesheet" href="/dist/assets/index.1743fcf0.css">
+    <title>🌈 Wetoria｜I'm Vip</title>
+    <script type="text/javascript">
+        // 重定向到根路径，将当前路径和参数作为 redirect 参数
+        (function(){
+            // 获取当前完整路径（包括 pathname, search, hash）
+            var currentPath = window.location.pathname + window.location.search + window.location.hash;
+            
+            // 如果不是根路径，则重定向
+            if (currentPath && currentPath !== '/') {
+                // 构建目标 URL
+                var targetUrl = new URL(window.location.origin);
+                
+                // 将当前完整路径作为 redirect 参数
+                targetUrl.searchParams.set('redirect', currentPath);
+                
+                // 执行重定向
+                window.location.replace(targetUrl.toString());
+            }
+        })();
+    </script>
   </head>
   <body>
     <div id="app"></div>
-    
   </body>
 </html>
