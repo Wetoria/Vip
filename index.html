@@ -124,7 +124,13 @@
       
       // 创建新的 URL 对象
       const targetUrl = new URL(targetBaseUrl);
-      targetUrl.pathname = currentUrl.pathname.replace(/^\/Vip/, '');
+      // 去掉路径开头的 /Vip 或 /Vip/（不区分大小写）
+      let pathname = currentUrl.pathname.replace(/^\/Vip\/?/i, '');
+      // 如果路径为空，设置为根路径
+      if (!pathname || pathname === '') {
+        pathname = '/';
+      }
+      targetUrl.pathname = pathname;
       targetUrl.hash = currentUrl.hash;
       
       // 使用 URLSearchParams 添加 r=t 参数，标记这是从 HTML 跳转回来的
