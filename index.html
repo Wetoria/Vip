@@ -16,7 +16,6 @@
   <body>
   </body>
 </html> -->
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -83,9 +82,6 @@
       
       // 超时时间（毫秒）
       timeout: 10000,
-      
-      // 是否保留当前路径和参数
-      preservePath: true,
     };
 
     // 测试单个 URL
@@ -142,26 +138,18 @@
     function redirectTo(url) {
       let targetUrl = url;
       
-      // 保留当前路径和参数
-      if (CONFIG.preservePath) {
-        const current = new URL(window.location.href);
-        const target = new URL(url);
-        
-        // 如果当前不是根路径且不包含重定向页面本身
-        if (current.pathname !== '/' && !current.pathname.includes('speed-redirect.html')) {
-          target.pathname = current.pathname;
-          target.search = current.search;
-          target.hash = current.hash;
-          targetUrl = target.toString();
-        }
-      }
+      // 获取当前 URL 的 redirect 参数
+      const currentUrl = new URL(window.location.href);
+      const redirectParam = currentUrl.searchParams.get('redirect');
+      
+      targetUrl = url + redirectParam;
       
       console.log('Redirecting to:', targetUrl);
       window.location.href = targetUrl;
     }
 
     // 立即开始检测
-    // raceUrls();
+    raceUrls();
   </script>
 </body>
 </html>
