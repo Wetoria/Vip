@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,4 +15,153 @@
   </head>
   <body>
   </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌈 𝓦𝓮𝓽𝓸𝓻𝓲𝓪｜I'm Vip</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loading {
+      text-align: center;
+      color: white;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="spinner"></div>
+    <div class="loading-text">正在连接...</div>
+  </div>
+
+  <script>
+    // 配置项
+    const CONFIG = {
+      // 要测试的域名列表
+      urls: [
+        'https://speed.wetoria.me',
+        'https://speed.wetoria.vip',
+        'https://speed.wetoria.cn',
+      ],
+      
+      // 超时时间（毫秒）
+      timeout: 10000,
+      
+      // 是否保留当前路径和参数
+      preservePath: true,
+    };
+
+    // 测试单个 URL
+    async function testUrl(url) {
+      const startTime = Date.now();
+
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), CONFIG.timeout);
+
+        await fetch(url, {
+          method: 'HEAD',
+          signal: controller.signal,
+          mode: 'no-cors',
+          cache: 'no-cache',
+        });
+
+        clearTimeout(timeoutId);
+        const responseTime = Date.now() - startTime;
+
+        return {
+          url,
+          success: true,
+          responseTime,
+        };
+      } catch (error) {
+        return {
+          url,
+          success: false,
+          responseTime: Date.now() - startTime,
+        };
+      }
+    }
+
+    // 竞速测试所有 URL
+    async function raceUrls() {
+      const promises = CONFIG.urls.map(testUrl);
+      
+      // 使用 Promise.race 获取第一个成功的
+      const results = await Promise.all(promises);
+      
+      // 找到第一个成功的结果
+      const fastest = results.find(r => r.success);
+      
+      if (fastest) {
+        redirectTo(fastest.url);
+      } else {
+        // 如果都失败了，跳转到第一个 URL
+        redirectTo(CONFIG.urls[0]);
+      }
+    }
+
+    // 跳转到指定 URL
+    function redirectTo(url) {
+      let targetUrl = url;
+      
+      // 保留当前路径和参数
+      if (CONFIG.preservePath) {
+        const current = new URL(window.location.href);
+        const target = new URL(url);
+        
+        // 如果当前不是根路径且不包含重定向页面本身
+        if (current.pathname !== '/' && !current.pathname.includes('speed-redirect.html')) {
+          target.pathname = current.pathname;
+          target.search = current.search;
+          target.hash = current.hash;
+          targetUrl = target.toString();
+        }
+      }
+      
+      console.log('Redirecting to:', targetUrl);
+      window.location.href = targetUrl;
+    }
+
+    // 立即开始检测
+    raceUrls();
+  </script>
+</body>
 </html>
